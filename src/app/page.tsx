@@ -619,7 +619,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
                 <Layers className="w-5 h-5 text-[#3B82F6]" /> 关键行动
               </h3>
               <div className="space-y-3">
-                {project.tasks.map((task, i) => (
+               {(project.tasks || []).map((task, i) => (
                   <div key={i} className="flex gap-3 p-4 rounded-xl bg-[rgba(15,23,60,0.4)] border border-[rgba(59,130,246,0.08)]">
                     <span className="text-xs font-mono text-[#3B82F6] mt-0.5 flex-shrink-0">0{i + 1}</span>
                     <p className="text-sm text-[#94A3B8] leading-relaxed">{task}</p>
@@ -634,7 +634,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
                 <Code className="w-5 h-5 text-[#3B82F6]" /> 执行流程
               </h3>
               <div className="flex flex-wrap items-center gap-2">
-                {project.flow.map((step, i) => (
+                {(project.flow || []).map((step, i) => (
                   <div key={step} className="flex items-center gap-2">
                     <span className="px-4 py-2 rounded-lg bg-[rgba(59,130,246,0.08)] border border-[rgba(59,130,246,0.15)] text-sm text-[#E2E8F0]">
                       {step}
@@ -729,7 +729,7 @@ function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { data: apiProjects, loading } = useApiData<Project[]>("projects", projects, "projects");
 
-  const displayProjects = loading ? projects : apiProjects;
+  const displayProjects = loading ? projects : (apiProjects || projects);
   const filtered = activeCategory === "全部" ? displayProjects : displayProjects.filter((p) => p.category === activeCategory);
 
   return (
