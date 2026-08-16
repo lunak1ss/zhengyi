@@ -252,7 +252,7 @@ function Navigation() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = navLinks.map((l) => l.href.slice(1));
+      const sections = navLinks?.map((l) => l.href.slice(1));
       for (const id of sections.reverse()) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 120) {
@@ -272,7 +272,7 @@ function Navigation() {
           郑一鸣
         </a>
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navLinks?.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -418,7 +418,7 @@ function HeroSection() {
 
         {/* Bottom: Capability Cards */}
         <div className="hero-animate-d5 mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-          {heroCapabilities.map((cap) => (
+          {heroCapabilities?.map((cap) => (
             <div key={cap.label} className="glass-card p-5 text-center">
               <p className="text-sm text-[#94A3B8] mb-2">{cap.label}</p>
               <div className="flex justify-center gap-1">
@@ -474,7 +474,7 @@ function TimelineSection() {
         <div className="relative">
           <div className="timeline-line" />
           <div className="space-y-16">
-            {timelineData.map((item, i) => (
+            {timelineData?.map((item, i) => (
               <ScrollAnimation key={item.year} delay={i * 100}>
                 <div className={`relative flex items-center gap-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex-row`}>
                   {/* Content */}
@@ -516,7 +516,7 @@ function CapabilitiesSection() {
           </div>
         </ScrollAnimation>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {capabilities.map((cap, i) => (
+          {capabilities?.map((cap, i) => (
             <ScrollAnimation key={cap.cn} delay={i * 80}>
               <div className="glass-card p-6 h-full group cursor-default">
                 <div className="flex items-center gap-3 mb-4">
@@ -529,7 +529,7 @@ function CapabilitiesSection() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  {cap.items.map((item) => (
+                  {cap.items?.map((item) => (
                     <div key={item} className="flex items-center gap-2 text-sm text-[#94A3B8]">
                       <div className="w-1 h-1 rounded-full bg-[#3B82F6]/50" />
                       <span>{item}</span>
@@ -651,7 +651,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
                 <Star className="w-5 h-5 text-[#3B82F6]" /> 项目成果
               </h3>
               <div className="grid md:grid-cols-2 gap-3">
-                {project.results.map((r) => (
+                {project.results?.map((r) => (
                   <div key={r} className="flex items-center gap-2 p-3 rounded-xl bg-[rgba(59,130,246,0.05)] border border-[rgba(59,130,246,0.1)]">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] flex-shrink-0" />
                     <span className="text-sm text-[#E2E8F0]">{r}</span>
@@ -665,7 +665,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
               <div>
                 <h3 className="text-lg font-serif font-bold text-[#E2E8F0] mb-4">项目展示</h3>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {project.extraImages.map((img, i) => (
+                  {project.extraImages?.map((img, i) => (
                     <div key={i} className="rounded-xl overflow-hidden border border-[rgba(59,130,246,0.1)]">
                       <Image src={img} alt={`${project.title} ${i + 1}`} width={600} height={400} className="w-full h-auto" />
                     </div>
@@ -681,7 +681,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
                   <Download className="w-5 h-5 text-[#3B82F6]" /> 项目资料
                 </h3>
                 <div className="space-y-3">
-                  {project.pdfs.map((pdf, i) => (
+                  {project.pdfs?.map((pdf, i) => (
                     <a
                       key={i}
                       href={pdf.url}
@@ -707,7 +707,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
             <div>
               <h3 className="text-lg font-serif font-bold text-[#E2E8F0] mb-4">能力体现</h3>
               <div className="flex flex-wrap gap-2">
-                {project.skills.map((s) => (
+                {project.skills?.map((s) => (
                   <span key={s} className="px-4 py-1.5 rounded-full text-sm bg-[rgba(59,130,246,0.1)] text-[#60A5FA] border border-[rgba(59,130,246,0.15)]">
                     {s}
                   </span>
@@ -745,7 +745,7 @@ function ProjectsSection() {
         {/* Category Tabs */}
         <ScrollAnimation delay={100}>
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((cat) => (
+            {categories?.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
@@ -759,7 +759,7 @@ function ProjectsSection() {
 
         {/* Project Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {filtered.map((project, i) => (
+          {filtered?.map((project, i) => (
             <ScrollAnimation key={project.id} delay={i * 100}>
               <div
                 className="glass-card overflow-hidden group cursor-pointer h-full"
@@ -859,7 +859,7 @@ function MediaGallerySection() {
 
   const displayItems = loading ? mediaItems : apiMedia;
   const visibleItems = displayItems.filter((item) => item.visible);
-  const allCategories = ["全部", ...Array.from(new Set(visibleItems.map((item) => item.category)))];
+  const allCategories = ["全部", ...Array.from(new Set(visibleItems?.map((item) => item.category)))];
   const filtered = activeCategory === "全部" ? visibleItems : visibleItems.filter((item) => item.category === activeCategory);
 
   return (
@@ -879,7 +879,7 @@ function MediaGallerySection() {
         {allCategories.length > 1 && (
           <ScrollAnimation delay={100}>
             <div className="flex flex-wrap justify-center gap-3 mb-10">
-              {allCategories.map((cat) => (
+              {allCategories?.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
@@ -895,7 +895,7 @@ function MediaGallerySection() {
         {/* Gallery Grid */}
         {filtered.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item, i) => (
+            {filtered?.map((item, i) => (
               <ScrollAnimation key={item.id} delay={i * 80}>
                 <div
                   className="glass-card overflow-hidden group cursor-pointer h-full"
@@ -1035,7 +1035,7 @@ function AIWorkflowSection() {
         <ScrollAnimation delay={200}>
           <div className="glass-card p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              {steps.map((step, i) => (
+              {steps?.map((step, i) => (
                 <div key={step.label} className="flex items-center gap-4 md:gap-0 flex-1 w-full md:w-auto">
                   <div className="flex flex-col items-center text-center flex-shrink-0">
                     <div className="w-14 h-14 rounded-2xl bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.2)] flex items-center justify-center text-[#3B82F6] mb-3">
@@ -1079,7 +1079,7 @@ function AIWorkflowSection() {
         {/* Work Method Steps */}
         <ScrollAnimation delay={300}>
           <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {workSteps.map((step, i) => (
+            {workSteps?.map((step, i) => (
               <div key={step.num} className="glass-card p-4 text-center group">
                 <span className="text-xl font-bold text-[#64748B] group-hover:text-[#3B82F6] transition-colors font-mono">{step.num}</span>
                 <h3 className="text-sm font-serif font-bold text-[#E2E8F0] mt-2 mb-0.5">{step.cn}</h3>
@@ -1120,7 +1120,7 @@ function ResumeSection() {
                   <div>
                     <p className="text-xs text-[#64748B] uppercase tracking-wider mb-1">求职方向</p>
                     <div className="flex flex-wrap gap-2">
-                      {jobTargets.map((t) => (
+                      {jobTargets?.map((t) => (
                         <span key={t} className="px-3 py-1 rounded-full text-xs bg-[rgba(59,130,246,0.08)] text-[#60A5FA] border border-[rgba(59,130,246,0.12)]">
                           {t}
                         </span>
@@ -1198,7 +1198,7 @@ function ContactSection() {
           <div className="mb-8">
             <p className="text-xs text-[#64748B] tracking-widest uppercase mb-4">求职方向</p>
             <div className="flex flex-wrap justify-center gap-3">
-              {jobTargets.map((target) => (
+              {jobTargets?.map((target) => (
                 <span key={target} className="px-5 py-2 rounded-full text-sm border border-[rgba(59,130,246,0.2)] text-[#60A5FA] bg-[rgba(59,130,246,0.05)]">
                   {target}
                 </span>
