@@ -1,0 +1,39 @@
+{
+  "siteContent": {
+    "hero": {
+      "name": "郑一鸣",
+      "tagline": "AI时代的复合型内容运营与项目执行人才",
+      "description": "应届本科生，具备AI工具应用能力、项目策划能力、内容创作能力和数据分析能力。",
+      "tags": ["应届本科生", "AI工具应用", "项目策划", "内容创作", "数据分析"]
+    },
+    "about": {
+      "title": "我的成长路径",
+      "subtitle": "MY JOURNEY",
+      "timeline": [
+        { "year": "2022", "title": "进入大学", "desc": "杭州师范大学本科入学，开始探索项目管理与团队协作领域" },
+        { "year": "2023", "title": "技能积累", "desc": "系统学习项目管理、活动策划与执行，参与校园组织工作" },
+        { "year": "2024", "title": "项目实践", "desc": "参与浙江省挑战杯金奖项目，负责跨专业团队协调与项目推进" },
+        { "year": "2025", "title": "AI探索", "desc": "探索AI工具在项目管理、内容创作和效率提升中的应用" },
+        { "year": "2026", "title": "求职启航", "desc": "寻找能够创造价值的岗位，期待在真实业务中贡献力量" }
+      ]
+    },
+    "capabilities": {
+      "title": "核心能力",
+      "subtitle": "CORE SKILLS",
+      "items": [
+        { "icon": "Target", "title": "项目策划", "en": "PROJECT PLANNING", "items": ["活动方案设计", "执行流程管理", "资源协调"] },
+        { "icon": "Bot", "title": "AI工具应用", "en": "AI TOOLS", "items": ["AI视频生成", "AI办公自动化", "AI Agent探索"] },
+        { "icon": "Palette", "title": "内容创作", "en": "CONTENT CREATION", "items": ["短视频策划", "脚本设计", "视觉表达"] },
+        { "icon": "BarChart3", "title": "数据分析", "en": "DATA ANALYSIS", "items": ["Excel", "SPSS", "数据整理"] },
+        { "icon": "Presentation", "title": "PPT与商业表达", "en": "BUSINESS PRESENTATION", "items": ["商业方案", "项目汇报", "视觉设计"] },
+        { "icon": "Users", "title": "沟通协作", "en": "COMMUNICATION", "items": ["团队合作", "跨部门协调"] }
+      ]
+    },
+    "contact": {
+      "title": "未来合作入口",
+      "subtitle": "GET IN TOUCH",
+      "description": "期待加入重视执行力、学习能力和团队协作的企业，在真实业务中创造价值。",
+      "jobTargets": ["项目运营", "产品运营", "活动策划", "业务支持", "AI产品助理"]
+    }
+  }
+}

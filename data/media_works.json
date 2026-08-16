@@ -1,0 +1,22 @@
+{
+  "mediaWorks": [
+    {
+      "id": 1,
+      "title": "挑战杯项目海报",
+      "type": "poster",
+      "cover": "/media/poster_challenge_cup.png",
+      "src": "/media/poster_challenge_cup.png",
+      "description": "智能多栖：可变胞多模态飞行器 — 浙江省挑战杯金奖项目宣传海报",
+      "visible": true
+    },
+    {
+      "id": 2,
+      "title": "为你撑伞招募海报",
+      "type": "poster",
+      "cover": "/media/poster_umbrella_v2.png",
+      "src": "/media/poster_umbrella_v2.png",
+      "description": "为你撑伞成长支持项目 — 2026年暑期志愿者招募海报",
+      "visible": true
+    }
+  ]
+}
